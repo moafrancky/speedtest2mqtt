@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "docker container has been started"
-CRON=${CRON:-0 * * * *}
+CRON=${CRON:-0 0,6,12,18 * * *}
 
 declare -p | grep -Ev 'BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID' > /var/tmp/container.env
 
