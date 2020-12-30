@@ -8,7 +8,7 @@ name: Anchore Container Scan
 on: push
 jobs:
   Anchore-Build-Scan:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout the code
       uses: actions/checkout@v2
