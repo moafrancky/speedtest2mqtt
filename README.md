@@ -14,7 +14,7 @@ Alpine-based docker to push Ookla Speedtest results to a MQTT Server.
 
 ## Examples
 
-####docker-compose.yml
+#### docker-compose.yml
 
 ```
 version: "3"
@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
 ```
 
-####docker 
+#### docker 
 
 ```
 docker run -d --env-file ./env.list moafrancky/speedtest2mqtt:latest
@@ -47,7 +47,7 @@ MQTT_PASS=changeme
 CRON=0 * * * *
 ```
 
-##Note
+## Note
 
 This docker image uses [ookla speedtest cli](https://www.speedtest.net/fr/apps/cli) and automatically 
 accepts Ookla License and GDPR terms.
