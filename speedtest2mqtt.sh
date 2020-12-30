@@ -8,7 +8,7 @@ MQTT_PASS=${MQTT_PASS:-pass}
 
 file=~/ookla.json
 
-echo "$(date --iso-8601=seconds) starting speedtest"
+echo "$(date -Iseconds) starting speedtest"
 
 speedtest --accept-license --accept-gdpr -f json-pretty > ${file}
 
@@ -26,14 +26,14 @@ serverlocaltion=$(jq -r '.server.location' ${file})
 serverhost=$(jq -r '.server.host' ${file})
 timestamp=$(jq -r '.timestamp' ${file})
 
-echo "$(date --iso-8601=seconds) speedtest results"
+echo "$(date -Iseconds) speedtest results"
 
-echo "$(date --iso-8601=seconds) download = ${download} Mbps"
-echo "$(date --iso-8601=seconds) upload =  ${upload} Mbps"
-echo "$(date --iso-8601=seconds) ping =  ${ping} ms"
-echo "$(date --iso-8601=seconds) jitter = ${jitter} ms"
+echo "$(date -Iseconds) download = ${download} Mbps"
+echo "$(date -Iseconds) upload =  ${upload} Mbps"
+echo "$(date -Iseconds) ping =  ${ping} ms"
+echo "$(date -Iseconds) jitter = ${jitter} ms"
 
-echo "$(date --iso-8601=seconds) sending results to ${MQTT_HOST} as clientID ${MQTT_ID} with options ${MQTT_OPTIONS} using user ${MQTT_USER}"
+echo "$(date -Iseconds) sending results to ${MQTT_HOST} as clientID ${MQTT_ID} with options ${MQTT_OPTIONS} using user ${MQTT_USER}"
 
 /usr/bin/mosquitto_pub -h ${MQTT_HOST} -i ${MQTT_ID} ${MQTT_OPTIONS} -u ${MQTT_USER} -P ${MQTT_PASS} -t ${MQTT_TOPIC}/download -m "${download}"
 /usr/bin/mosquitto_pub -h ${MQTT_HOST} -i ${MQTT_ID} ${MQTT_OPTIONS} -u ${MQTT_USER} -P ${MQTT_PASS} -t ${MQTT_TOPIC}/upload -m "${upload}"
