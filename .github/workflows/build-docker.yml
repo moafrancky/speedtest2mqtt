@@ -24,6 +24,8 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: moafrancky/speedtest2mqtt:latest
+          build-args: |
+            ARCH=x86_64
       - name: Build and push arm Docker images
         uses: docker/build-push-action@v2.2.1
         id: docker_build_2
