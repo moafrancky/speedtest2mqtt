@@ -57,4 +57,4 @@ jobs:
         with:
           platforms: linux/arm/v7,linux/arm64,linux/amd64
           push: true
-          tags: moafrancky/speedtest2mqtt:latest
+          tags: moafrancky/speedtest2mqtt:${{ env.DOCKERTAG }}
