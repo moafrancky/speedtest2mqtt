@@ -36,6 +36,10 @@ jobs:
         if: ${{ env.BRANCH_NAME }} == 'main'
         shell: bash
         run: echo "DOCKERTAG=latest" >> $GITHUB_ENV
+      - name: Set docker tag for github tags
+        if: ${{ env.BRANCH_NAME }} != 'main'
+        shell: bash
+        run: echo "DOCKERTAG=$(echo "${{ env.BRANCH_NAME }}")" >> $GITHUB_ENV
       - name: Debug docker tag
         run: echo ${{ env.DOCKERTAG }}
       - name: Set up QEMU
