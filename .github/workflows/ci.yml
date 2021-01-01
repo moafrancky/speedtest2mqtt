@@ -3,10 +3,26 @@ name: build and push docker
 on:
   push:
     branches: main
+    tags:
+      - v*
 
 jobs:
+  define-docker-tag:
+    - name: Get branch name
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+    - name: Debug branch-tag
+        run: echo ${{ env.BRANCH_NAME }}
+    - name: Set docker tag for main branch
+        if: ${{ env.BRANCH_NAME }} == 'main'
+        shell: bash
+        run: echo "DOCKERTAG=latest" >> $GITHUB_ENV
+    - name: Debug docker tag
+        run: echo ${{ env.DOCKERTAG }}
   Anchore-Build-Scan:
     runs-on: ubuntu-latest
+    needs: define-docker-tag
     steps:
     - name: Checkout the code
       uses: actions/checkout@v2
