@@ -1,5 +1,5 @@
-ARG ARCH=x86_64
 FROM alpine:latest
+ARG ARCH=x86_64
 
 RUN apk --no-cache add bash mosquitto-clients jq wget dcron libcap && \
     wget https://bintray.com/ookla/download/download_file?file_path=ookla-speedtest-1.0.0-${ARCH}-linux.tgz -O /var/tmp/speedtest.tar.gz && \
