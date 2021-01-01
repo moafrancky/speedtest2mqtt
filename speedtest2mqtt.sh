@@ -22,7 +22,7 @@ packetloss=$(jq -r '.packetLoss' ${file})
 serverid=$(jq -r '.server.id' ${file})
 servername=$(jq -r '.server.name' ${file})
 servercountry=$(jq -r '.server.country' ${file})
-serverlocaltion=$(jq -r '.server.location' ${file})
+serverlocation=$(jq -r '.server.location' ${file})
 serverhost=$(jq -r '.server.host' ${file})
 timestamp=$(jq -r '.timestamp' ${file})
 
