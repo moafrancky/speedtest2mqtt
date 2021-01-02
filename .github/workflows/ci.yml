@@ -33,11 +33,11 @@ jobs:
       - name: Debug branch-tag
         run: echo ${{ env.BRANCH_NAME }}
       - name: Set docker tag for main branch
-        if: ${{ env.BRANCH_NAME }} == 'main'
+        if: ${{ env.BRANCH_NAME == 'main' }}
         shell: bash
         run: echo "DOCKERTAG=latest" >> $GITHUB_ENV
       - name: Set docker tag for github tags
-        if: ${{ env.BRANCH_NAME }} != 'main'
+        if: ${{ env.BRANCH_NAME != 'main' }}
         shell: bash
         run: echo "DOCKERTAG=$(echo "${{ env.BRANCH_NAME }}")" >> $GITHUB_ENV
       - name: Debug docker tag
