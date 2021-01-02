@@ -1,5 +1,10 @@
-version: 1
-update_configs:
-  - package_manager: "docker"
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
     directory: "/"
-    update_schedule: "daily"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: docker
+    directory: "/"
+    schedule:
+      interval: daily
