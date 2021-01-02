@@ -39,7 +39,7 @@ jobs:
       - name: Set docker tag for github tags
         if: ${{ env.BRANCH_NAME != 'main' }}
         shell: bash
-        run: echo "DOCKERTAG=$(echo "${{ env.BRANCH_NAME }}" | cut -c 2-)" >> $GITHUB_ENV
+        run: echo "DOCKERTAG=$(echo "${{ env.BRANCH_NAME }}" | sed 's/refs-tags-v//')" >> $GITHUB_ENV
       - name: Debug docker tag
         run: echo ${{ env.DOCKERTAG }}
       - name: Set up QEMU
