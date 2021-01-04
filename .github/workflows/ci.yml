@@ -5,6 +5,8 @@ on:
     branches: main
     tags:
       - v*
+  schedule:
+    - cron:  '0 0 * * *'
 
 jobs:
   Anchore-Build-Scan:
