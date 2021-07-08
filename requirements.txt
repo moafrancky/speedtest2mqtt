@@ -18,5 +18,5 @@ six==1.16.0
 strictyaml==1.4.4
 typing-extensions==3.10.0.0
 urllib3==1.26.6
-yacron==0.12.2
+yacron==0.13.0
 yarl==1.6.3
