@@ -2,7 +2,7 @@ aiohttp==3.8.1
 aiosmtplib==1.1.6
 async-timeout==4.0.2
 attrs==21.4.0
-certifi==2021.10.8
+certifi==2022.5.18.1
 chardet==4.0.0
 crontab==0.23.0
 idna==3.3
