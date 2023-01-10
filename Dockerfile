@@ -1,4 +1,4 @@
-FROM alpine:3.16.3
+FROM alpine:3.17.1
 ARG TARGETARCH
 
 COPY entrypoint.sh speedtest2mqtt.sh /opt/
