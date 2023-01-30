@@ -6,7 +6,7 @@ MQTT_OPTIONS=${MQTT_OPTIONS:-"-r"}
 MQTT_USER=${MQTT_USER:-user}
 MQTT_PASS=${MQTT_PASS:-pass}
 
-file=~/ookla.json
+file=/var/tmp/ookla.json
 
 echo "$(date -Iseconds) starting speedtest"
 
