@@ -6,4 +6,4 @@ jobs:
     env_file: /var/tmp/container.env
     captureStderr: false
     captureStdout: true
-    concurrencyPolicy: Forbid
+    concurrencyPolicy: Replace
