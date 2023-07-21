@@ -1,7 +1,7 @@
 # speedtest2mqtt
 
 Alpine-based docker to push Ookla Speedtest results to a MQTT Server.
-
+ 
 ## Environment Variables
 
     CRON (Default '0 0,6,12,18 * * *' -> run speedtest 4 times a day )
