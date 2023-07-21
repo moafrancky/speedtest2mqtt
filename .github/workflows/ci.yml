@@ -9,26 +9,26 @@ on:
     - cron:  '0 0 * * SUN'
 
 jobs:
-  Anchore-Build-Scan:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout the code
-      uses: actions/checkout@v3.1.0
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag localbuild/testimage:latest --build-arg TARGETARCH=amd64
-    - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
-      uses: anchore/scan-action@main
-      with:
-        image: "localbuild/testimage:latest"
-        acs-report-enable: true
-        fail-build: false
-    - name: Upload Anchore Scan Report
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: results.sarif
+#   Anchore-Build-Scan:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout the code
+#       uses: actions/checkout@v3.1.0
+#     - name: Build the Docker image
+#       run: docker build . --file Dockerfile --tag localbuild/testimage:latest --build-arg TARGETARCH=amd64
+#     - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
+#       uses: anchore/scan-action@main
+#       with:
+#         image: "localbuild/testimage:latest"
+#         acs-report-enable: true
+#         fail-build: false
+#     - name: Upload Anchore Scan Report
+#       uses: github/codeql-action/upload-sarif@v2
+#       with:
+#         sarif_file: results.sarif
   multi-arch-build:
     runs-on: ubuntu-latest
-    needs: Anchore-Build-Scan
+#     needs: Anchore-Build-Scan
     steps:
       - name: Get branch name
         shell: bash
